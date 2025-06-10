@@ -371,7 +371,7 @@ app.get('/', (req, res) => {
     },
     cors: "Enabled for Vercel frontend",
     ai_model: "Google Gemini 1.5 Flash",
-    frontend: "https://math-solver-ochre.vercel.app"
+    frontend: "https://math-solver2.vercel.app"
   });
 });
 
@@ -408,7 +408,7 @@ app.listen(PORT, HOST, () => {
 🤖 AI Model: ${GEMINI_MODEL}
 🔑 API Key: ${process.env.GEMINI_API_KEY ? '✅ Configured' : '❌ Missing'}
 🛡️  CORS: Fixed for Vercel frontend
-🌍 Frontend: https://math-solver-ochre.vercel.app
+🌍 Frontend: https://math-solver2.vercel.app
 📊 Health Check: GET /health
 🧮 Solve Math: POST /solve
 
@@ -421,7 +421,7 @@ Environment Variables:
 - NODE_ENV: ${process.env.NODE_ENV || 'development'}
 
 Ready to solve mathematical problems! 🎯
-CORS configured for: https://math-solver-ochre.vercel.app
+CORS configured for: https://math-solver2.vercel.app
   `);
 });
 
