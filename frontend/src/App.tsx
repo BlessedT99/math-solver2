@@ -23,7 +23,7 @@ const MathSolver = () => {
   const [calculations, setCalculations] = useState([]);
 
   // API Configuration
-  const API_BASE = 'https://math-solver-wi1e.onrender.com';
+  const API_BASE = 'https://math-solver2.onrender.com';
 
   // Initialize with sample data
   useEffect(() => {
