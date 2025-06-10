@@ -11,8 +11,8 @@ app.use((req, res, next) => {
     'http://localhost:3000',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
-    'https://math-solver-ochre.vercel.app',  // Your Vercel frontend
-    'https://math-solver-ochre.vercel.app/', // With trailing slash
+    'https://math-solver2.vercel.app',  // Your Vercel frontend
+    'https://math-solver2.vercel.app/', // With trailing slash
   ];
   
   // Get allowed origins from environment variable or use defaults
