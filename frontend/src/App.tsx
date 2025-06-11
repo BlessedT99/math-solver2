@@ -23,7 +23,7 @@ const MathSolver = () => {
   const [calculations, setCalculations] = useState([]);
 
   // API Configuration
-  const API_BASE = 'https://math-solver-wi1e.onrender.com';
+  const API_BASE = 'https://math-solver2.onrender.com';
 
   // Initialize with sample data
   useEffect(() => {
@@ -251,7 +251,7 @@ const MathSolver = () => {
             <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
               <Calculator className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-xl font-bold text-gray-800">Mathos AI</h1>
+            <h1 className="text-xl font-bold text-gray-800">Math Master</h1>
           </div>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -357,7 +357,7 @@ const MathSolver = () => {
                     <button
                       key={index}
                       onClick={() => setProblem(example)}
-                      className="px-3 py-2 bg-red-100  Replace: text-red-700 rounded-lg text-sm hover:bg-red-200 transition-colors"
+                      className="px-3 py-2 bg-red-100 text-red-700 rounded-lg text-sm hover:bg-red-200 transition-colors"
                     >
                       {example}
                     </button>
@@ -385,7 +385,7 @@ const MathSolver = () => {
                       </div>
                       <div>
                         <h4 className="font-medium text-gray-700 mb-2">Result:</h4>
-                        <p className="text-xl font-mono font-bold bgtext-red-600bg-red-50 p-3 rounded-lg">
+                        <p className="text-xl font-mono font-bold text-red-600 bg-red-50 p-3 rounded-lg">
                           {result.calculation.result}
                         </p>
                       </div>
@@ -404,7 +404,7 @@ const MathSolver = () => {
                     <div>
                       <button
                         onClick={() => setExpandedSteps(!expandedSteps)}
-                        className="flex items-center space-x-2 font-medium bgtext-red-600hover:Replace: text-red-700 mb-3"
+                        className="flex items-center space-x-2 font-medium text-red-600 hover:text-red-700 mb-3"
                       >
                         {expandedSteps ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
                         <BookOpen className="w-4 h-4" />
@@ -427,26 +427,24 @@ const MathSolver = () => {
                               {(Array.isArray(result.calculation.steps) 
                                 ? result.calculation.steps 
                                 : result.calculation.steps.split('\n').filter(step => step.trim())
-                              ).map((step, index) => (
-                                <div key={index} className="space-y-2">
-                                  <div className="font-semibold text-gray-800">
-                                    Step {index + 1}: {step.includes(':') ? step.split(':')[0] : step}
-                                  </div>
-                                  {step.includes(':') && (
-                                    <div className="ml-4 space-y-2">
-                                      <div className="font-mono text-lg bg-white p-3 rounded border">
-                                        {step.split(':').slice(1).join(':').trim()}
-                                      </div>
+                              ).map((step, index) => {
+                                // Clean the step content by removing any leading numbers/dots
+                                const cleanStep = step.replace(/^\d+\.\s*/, '').trim();
+                                
+                                return (
+                                  <div key={index} className="space-y-2">
+                                    <div className="font-semibold text-gray-800">
+                                      Step {index + 1}: {cleanStep.includes(':') ? cleanStep.split(':')[1].trim() : cleanStep}
                                     </div>
-                                  )}
-                                </div>
-                              ))}
+                                  </div>
+                                );
+                              })}
                             </div>
                             
                             {/* Final Answer */}
                             <div className="border-t border-gray-200 pt-4">
                               <div className="font-semibold text-gray-800 mb-2">Answer:</div>
-                              <div className="text-xl font-mono font-bold bgtext-red-600bg-white p-4 rounded border-2 border-red-200">
+                              <div className="text-xl font-mono font-bold text-red-600 bg-white p-4 rounded border-2 border-red-200">
                                 {result.calculation.result}
                               </div>
                             </div>
@@ -484,7 +482,7 @@ const MathSolver = () => {
                               <Clock className="w-4 h-4" />
                               <span>{new Date(calc.timestamp).toLocaleString()}</span>
                             </span>
-                            <span className="px-2 py-1 bg-red-100  Replace: text-red-700 rounded-full text-xs">
+                            <span className="px-2 py-1 bg-red-100 text-red-700 rounded-full text-xs">
                               {calc.operation}
                             </span>
                           </div>
@@ -498,7 +496,7 @@ const MathSolver = () => {
                       </div>
                       
                       <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                        <p className="font-mono text-lg bgtext-red-600font-semibold">{calc.result}</p>
+                        <p className="font-mono text-lg text-red-600 font-semibold">{calc.result}</p>
                       </div>
                       
                       <details className="text-sm">
@@ -598,7 +596,7 @@ const MathSolver = () => {
             <div className="mt-6 text-center">
               <button
                 onClick={() => setIsLogin(!isLogin)}
-                className="text-blue-500 hover:bgtext-red-600text-sm"
+                className="text-red-600 hover:text-red-700 text-sm"
               >
                 {isLogin ? "Don't have an account? Sign up" : "Already have an account? Log in"}
               </button>
